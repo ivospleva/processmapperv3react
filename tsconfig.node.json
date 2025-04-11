@@ -1,24 +1,17 @@
 {
   "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-    "target": "ES2022",
-    "lib": ["ES2023"],
+    "composite": true,
     "module": "ESNext",
+    "moduleResolution": "Node", // Změna na "Node" nebo "NodeNext" pro jistotu
+    "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "types": ["node"] // <--- Přidáno toto
   },
-  "include": ["vite.config.ts"]
+  // Zahrneme všechny relevantní konfigurační soubory
+  "include": [
+    "vite.config.ts",
+    "postcss.config.js",
+    "tailwind.config.js"
+  ]
 }

@@ -1,7 +1,20 @@
+// tsconfig.node.json - Konfigurace TypeScriptu pro Node.js prostředí (Vite config atd.)
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+  "compilerOptions": {
+    "composite": true, // Umožňuje odkazování z jiných tsconfig souborů
+    "module": "ESNext", // Použije moderní ES moduly, kompatibilní s Vite
+    "moduleResolution": "Node", // Nebo "NodeNext" - způsob, jak TS hledá moduly
+    "allowSyntheticDefaultImports": true, // Povolí importy jako `import react from 'react'`
+    "skipLibCheck": true, // Přeskočí kontrolu typů v deklaračních souborech (.d.ts) - zrychlení
+    "strict": true, // Zapne přísné typové kontroly (doporučeno)
+    "types": ["node"] // Říká TS, aby načetl typy pro Node.js (pro 'path', '__dirname' atd.)
+  },
+  // Zahrne pouze konfigurační soubory, které běží v Node.js prostředí
+  "include": [
+    "vite.config.ts",
+    "postcss.config.js",
+    "tailwind.config.js"
+    // Můžeš sem přidat další konfigurační soubory, pokud je budeš mít
   ]
+  // 'exclude' není obvykle potřeba, pokud 'include' je specifické
 }
